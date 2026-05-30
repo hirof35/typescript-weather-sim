@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeScript 気象図シミュレーター</title>
+    <style>
+      body {
+        background: #111;
+        color: #fff;
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .controls {
+        margin-bottom: 15px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      button {
+        padding: 8px 16px;
+        font-weight: bold;
+        border: 2px solid #555;
+        background: #222;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.2s;
+      }
+      button.active.high { border-color: #ff4444; background: #422; }
+      button.active.low { border-color: #4444ff; background: #224; }
+      button.high:hover { border-color: #ff8888; }
+      button.low:hover { border-color: #8888ff; }
+      canvas {
+        border: 1px solid #444;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        cursor: crosshair;
+      }
+      .info { font-size: 12px; color: #aaa; }
+    </style>
+  </head>
+  <body>
+
+    <div class="controls">
+      <button id="btnHigh" class="active high">高気圧を配置 (H)</button>
+      <button id="btnLow" class="low">低気圧を配置 (L)</button>
+      <div class="info">※ 左クリックで新規配置・ドラッグ、右クリックで削除</div>
+    </div>
+
+    <canvas id="weatherCanvas" width="900" height="600"></canvas>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
